@@ -14,7 +14,7 @@ pipeline {
                     echo "PATH = ${PATH}"
                     echo "MAVEN_HOME = ${MAVEN_HOME}"
                  sh 'mvn --version'
-                    
+                }      
             }
             }
         // Step 2
