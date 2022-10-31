@@ -8,6 +8,15 @@ pipeline {
                     git 'https://github.com/induin4u/Industry-Grade-Java-Project-I.git'
                 }        
         }
+       stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "MAVEN_HOME = ${MAVEN_HOME}"
+                    echo "$JAVA_HOME = ${JAVA_HOME}"
+                '''
+            }
+        }
          // Step 2
         stage('Compile by Maven') {
                 steps {
