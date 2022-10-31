@@ -8,15 +8,7 @@ pipeline {
                     git 'https://github.com/induin4u/Industry-Grade-Java-Project-I.git'
                 }        
         }
-         stage('Tools Init') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "MAVEN_HOME = ${MAVEN_HOME}"
-                    '''
-            }
-            }
-        // Step 2
+         // Step 2
         stage('Compile by Maven') {
                 steps {
                     sh 'mvn clean compile'
