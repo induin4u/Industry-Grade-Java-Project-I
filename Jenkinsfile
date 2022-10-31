@@ -10,11 +10,10 @@ pipeline {
         }
          stage('Tools Init') {
             steps {
-                script {
+                sh '''
                     echo "PATH = ${PATH}"
                     echo "MAVEN_HOME = ${MAVEN_HOME}"
-                 sh 'mvn --version'
-                }      
+                    '''
             }
             }
         // Step 2
