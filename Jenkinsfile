@@ -20,20 +20,20 @@ pipeline {
          // Step 2
         stage('Compile by Maven') {
                 steps {
-                    sh 'mvn clean compile'
+                    sh '/opt/apache-maven-3.6.3/bin/mvn clean compile'
                 }
         }
         // Step 3
         stage('Test by Maven') {
                 steps {
-                    sh 'mvn test'
+                    sh '/opt/apache-maven-3.6.3/bin/mvn test'
                 }
         }
       
          // Step 4
         stage('Package by Maven') {
                 steps {
-                    sh 'mvn package'
+                    sh '/opt/apache-maven-3.6.3/bin/mvn package'
                 }
         }
          
