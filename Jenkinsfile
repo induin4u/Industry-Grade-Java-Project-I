@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    
+    tools {
+        maven 'apache-maven-3.6.3' 
+    }    
     stages {
         // Step 1
         stage('SCM') {
@@ -8,32 +10,23 @@ pipeline {
                     git 'https://github.com/induin4u/Industry-Grade-Java-Project-I.git'
                 }        
         }
-       stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "MAVEN_HOME = ${MAVEN_HOME}"
-                    echo "$JAVA_HOME = ${JAVA_HOME}"
-                '''
-            }
-        }
-         // Step 2
+        // Step 2
         stage('Compile by Maven') {
                 steps {
-                    sh '/opt/apache-maven-3.6.3/bin/mvn clean compile'
+                    sh 'mvn clean compile'
                 }
         }
         // Step 3
         stage('Test by Maven') {
                 steps {
-                    sh '/opt/apache-maven-3.6.3/bin/mvn test'
+                    sh 'mvn test'
                 }
         }
       
          // Step 4
         stage('Package by Maven') {
                 steps {
-                    sh '/opt/apache-maven-3.6.3/bin/mvn package'
+                    sh 'mvn package'
                 }
         }
          
