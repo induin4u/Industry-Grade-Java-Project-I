@@ -33,14 +33,14 @@ pipeline {
          // Step 5
         stage('Docker build') {
                 steps {
-                    sh 'docker build -t abctechnologies:latest .'
+                    sh 'sudo docker build -t abctechnologies:latest .'
                 }
         }
         
          // Step 
         stage('Run Docker Container') {
                 steps {
-                    sh 'docker run --name abctechnologies -d -p 9099:8080 abctechnologies:latest'
+                    sh 'sudo docker run --name abctechnologies -d -p 9099:8080 abctechnologies:latest'
                 }
         }
          
