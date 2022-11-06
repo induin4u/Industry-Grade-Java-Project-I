@@ -5,26 +5,26 @@ pipeline {
     }    
     stages {
         // Step 1
-        stage('SCM') {
+        stage('Checkout Code from SCM-GIT') {
                 steps {
                     git 'https://github.com/induin4u/Industry-Grade-Java-Project-I.git'
                 }        
         }
         // Step 2
-        stage('Compile by Maven') {
+        stage('Compile the GIT code by Maven') {
                 steps {
                     sh 'mvn clean compile'
                 }
         }
         // Step 3
-        stage('Test by Maven') {
+        stage('Test Code by Maven') {
                 steps {
                     sh 'mvn test'
                 }
         }
       
          // Step 4
-        stage('Package by Maven') {
+        stage('Code Package by Maven') {
                 steps {
                     sh 'mvn package'
                 }
