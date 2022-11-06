@@ -4,7 +4,7 @@ metadata:
   name: abctechnologies-app
 spec:
   replicas: 2
-  selector: 
+  selector:
     matchLabels:
       app: abctechnologies-app
   template:
@@ -16,9 +16,5 @@ spec:
       - name: abctechnologies-app
         image: 10061982834282/abctechnologies-app:latest
         imagePullPolicy: Always
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 8080
