@@ -51,6 +51,13 @@ pipeline {
                 		sh 'sudo docker push 10061982834282/abctechnologies-app:latest'
 			}
 		}
+	    // Step 6
+        stage('Copy deployment files and deploy app on K8s') {
+
+			steps {
+				sh 'sudo ansible-playbook k8s/'
+			}
+		}
 	      
      }
    post {
