@@ -3,11 +3,11 @@
   tasks:
     - name: Copy deployment files to k8s servers
       copy:
-          src: k8s/App-deploy.yaml
+          src: App-deploy.yaml
           dest: /tmp/App-deploy.yaml
     - name: Copy deployment files to k8s servers
       copy:
-          src: k8s/App-service.yaml
+          src: App-service.yaml
           dest: /tmp/App-service.yaml
     - name: Deploy APP on Kubernetes
       command: kubectl apply -f /tmp/App-deploy.yaml
