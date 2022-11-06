@@ -2,7 +2,13 @@ pipeline {
     agent any
     tools {
         maven 'apache-maven-3.6.3' 
-    }    
+    }
+    
+    environment {
+        DOCKERHUB_CRED=credentials('dockerhub-cred')
+        BUILD_NUM = "${BUILD_ID}"
+    
+    }
     stages {
         // Step 1
         stage('Checkout Code from SCM-GIT') {
@@ -31,18 +37,20 @@ pipeline {
         }
         
          // Step 5
-        stage('Docker build') {
+        stage('Docker build and Tagging for Docker Hub') {
                 steps {
-                    sh 'sudo docker build -t abctechnologies:latest .'
+                    sh 'sudo docker build -t abctechnologies-app:latest .'
+                    sh 'sudo docker tag abctechnologies-app 10061982834282/abctechnologies-app:latest'
                 }
         }
-        
-         // Step 
-        stage('Run Docker Container') {
-                steps {
-                    sh 'sudo docker run --name abctechnologies -d -p 9099:8080 abctechnologies:latest'
-                }
-        }
-         
-    }
+        // Step 6
+        stage('Docker Hub Login and Push the Image') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CRED_PSW | docker login -u $DOCKERHUB_CRED_USR --password-stdin'
+                sh 'docker push 10061982834282/abctechnologies-app:latest'
+			}
+		}
+  
+     }
 }      
