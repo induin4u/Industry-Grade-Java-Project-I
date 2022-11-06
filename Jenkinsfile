@@ -51,6 +51,13 @@ pipeline {
                 		sh 'sudo docker push 10061982834282/abctechnologies-app:latest'
 			}
 		}
+	    
+      success {
+      script {
+        echo " Removing the local docker images "
+        sh 'sudo docker rmi -f $(docker images -q) '
+      }
+    }
   
      }
 }      
