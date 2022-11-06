@@ -2,6 +2,6 @@
   become: true
   tasks:
     - name: Deploy APP on Kubernetes
-      command: kubectl apply -f Deployment.yaml
+      command: kubectl apply -f /tmp/App-deploy.yaml
     - name: Create a Service on Kubernetes
-      command: kubectl apply -f Service.yaml
+      command: kubectl apply -f /tmp/App-service.yaml
