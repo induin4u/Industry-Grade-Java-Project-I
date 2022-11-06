@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: abctech-app
+  name: abctechnologies-app
 spec:
   replica: 2
   selector: 
     matchLabels:
-      app: abctech-app
+      app: abctechnologies-app
   template:
     metadata:
       labels:
-        app: abctech-app
+        app: abctechnologies-app
     spec:
       containers:
-      - name: abctech-app
-        image: yogeshk04/abctechapp:latest
+      - name: abctechnologies-app
+        image: 10061982834282/abctechnologies-app:latest
         imagePullPolicy: Always
         resources:
           limits:
