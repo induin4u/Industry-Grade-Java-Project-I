@@ -31,9 +31,16 @@ pipeline {
         }
         
          // Step 5
-        stage('Deploy War file into Tomcat') {
+        stage('Docker build') {
                 steps {
-                    sh 'sudo cp target/*.war /opt/apache-tomcat-8.5.83/webapps/'
+                    sh 'docker build -t ABCtechnologies:latest .'
+                }
+        }
+        
+         // Step 
+        stage('Run Docker Container') {
+                steps {
+                    sh 'docker run --name ABCtechnologies -d -p 9099:8080 ABCtechnologies:latest'
                 }
         }
          
