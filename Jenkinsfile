@@ -60,7 +60,7 @@ pipeline {
 
     success {
       script {
-        sh 'sudo docker rmi -f $(docker images -q)'
+        sh 'sudo docker rmi -f $(sudo docker images -q)'
 	sh 'sudo docker logout'
       }
     }
