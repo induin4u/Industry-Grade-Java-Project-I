@@ -1,0 +1,7 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: Deploy APP on Kubernetes
+      command: kubectl apply -f Deployment.yaml
+    - name: Create a Service on Kubernetes
+      command: kubectl apply -f Service.yaml
