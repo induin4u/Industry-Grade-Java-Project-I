@@ -47,8 +47,8 @@ pipeline {
         stage('Docker Hub Login and Push the Image') {
 
 			steps {
-				sh 'echo $DOCKERHUB_CRED_PSW | docker login -u $DOCKERHUB_CRED_USR --password-stdin'
-                sh 'docker push 10061982834282/abctechnologies-app:latest'
+				sh 'echo $DOCKERHUB_CRED_PSW | sudo docker login -u $DOCKERHUB_CRED_USR --password-stdin'
+                		sh 'sudo docker push 10061982834282/abctechnologies-app:latest'
 			}
 		}
   
