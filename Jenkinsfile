@@ -55,7 +55,7 @@ pipeline {
         stage('Copy deployment files and deploy app on K8s') {
 
 			steps {
-				sh 'sudo ansible-playbook k8s/anisible-deploy.yaml'
+				sh 'ansible-playbook k8s/anisible-deploy.yaml'
 			}
 		}
 	      
