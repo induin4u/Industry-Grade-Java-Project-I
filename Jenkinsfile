@@ -33,9 +33,7 @@ pipeline {
          // Step 5
         stage('Deploy War file into Tomcat') {
                 steps {
-                    sh ''' sudo rm -r /opt/apache-tomcat-8.5.83/webapps/ABCtechnologies-1.0*
-                    sudo cp target/*.war /opt/apache-tomcat-8.5.83/webapps/
-                    '''
+                    sh 'sudo cp target/*.war /opt/apache-tomcat-8.5.83/webapps/'
                 }
         }
          
