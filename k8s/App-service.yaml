@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: abctechnologies-app
 spec:
+  type: NodePort
   selector:
     app: abctechnologies-app
   ports:
   - port: 8003
     targetPort: 8080
     nodePort: 31884
-  type: LoadBalancer
