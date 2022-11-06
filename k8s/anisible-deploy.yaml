@@ -4,7 +4,7 @@
     - name: Copy deployment files to k8s servers
         copy:
           src: k8s/App*.yaml
-          dest: tmp/
+          dest: /tmp/
     - name: Deploy APP on Kubernetes
       command: kubectl apply -f /tmp/App-deploy.yaml
     - name: Create a Service on Kubernetes
